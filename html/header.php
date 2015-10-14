@@ -56,7 +56,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>
 		
 		<!-- Lazysize -->
-		<script type="text/javascript" src="../assets/js/vendor_async/lazysizes.min.js" async="" ></script>
+		<script type="text/javascript" src="../assets/js/vendor_async/lazysizes.min.js"></script>
+		<!--<script type="text/javascript" src="../assets/js/vendor_async/ls.respimg.min.js"></script>-->
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
