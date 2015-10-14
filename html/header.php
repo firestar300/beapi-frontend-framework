@@ -55,8 +55,25 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>
 		
+		<!-- Lazysize -->
+		<script type="text/javascript" src="../assets/js/vendor_async/lazysizes.min.js" async="" ></script>
+		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+		<style>
+			.lazyload,
+			.lazyloading {
+				opacity: 0;
+			}
+			.lazyloaded {
+				opacity: 1;
+				transition: opacity 300ms;
+			}
+			.no-js img.lazyload {
+				display: none;
+			}
+		</style>
 
 	</head>
 	<body itemscope itemtype="http://schema.org/WebPage" class="<?php echo $class; ?>">
