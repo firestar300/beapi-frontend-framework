@@ -37,45 +37,26 @@
 				<!--[if lte IE 8]>
 					<img src="http://lorempixel.com/960/575/nature/ie-fallback/" class="fallback__img" alt="image with artdirection"/>
 				<![endif]-->
-					
 				
-				<!-- <hr>
-				<picture class="lazyload">
-					[if IE 9]><video style="display: none"><![endif]
-					<source
-						 data-srcset="http://lorempixel.com/480/288/people/480-288/, http://lorempixel.com/960/576/people/960-576/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
-						media="(max-width: 480px)" />
-					<source
-							 data-srcset="http://lorempixel.com/768/460/people/768-460/, http://lorempixel.com/1536/920/people/1536-920/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
-							media="(max-width: 768px)" />
-					<source
-							 data-srcset="http://lorempixel.com/960/575/people/960-575/, http://lorempixel.com/1920/1151/people/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-					[if IE 9]></video><![endif]
-					<img src="http://lorempixel.com/480/288/people/480-288/" class="lazyload" alt="image with artdirection"/>
-				</picture>
-				<noscript>
-					<img src="http://lorempixel.com/1280/768/people/1280-768/" alt="image with artdirection"/>
-				</noscript>
-				<hr>
-				<picture class="lazyload">
-					[if IE 9]><video style="display: none"><![endif]
-					<source
-						 data-srcset="http://lorempixel.com/480/288/sport/480-288/, http://lorempixel.com/960/576/sport/960-576/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
-						media="(max-width: 480px)" />
-					<source
-							 data-srcset="http://lorempixel.com/768/460/sport/768-460/, http://lorempixel.com/1536/920/sport/1536-920/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
-							media="(max-width: 768px)" />
-					<source
-							 data-srcset="http://lorempixel.com/960/575/sport/960-575/, http://lorempixel.com/1920/1151/sport/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-					[if IE 9]></video><![endif]
-					<img src="http://lorempixel.com/480/288/sport/480-288/" class="lazyload" alt="image with artdirection"/>
-				</picture>
-				<noscript>
-					<img src="http://lorempixel.com/1280/768/sport/1280-768/" alt="image with artdirection"/>
-				</noscript>
-				<hr>
-				<picture class="lazyload">
-					[if IE 9]><video style="display: none"><![endif]
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+				<picture>
+					<!--[if IE 9]><video style="display: none"><![endif]-->
 					<source
 						 data-srcset="http://lorempixel.com/480/288/food/480-288/, http://lorempixel.com/960/576/food/960-576/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
 						media="(max-width: 480px)" />
@@ -84,12 +65,18 @@
 							media="(max-width: 768px)" />
 					<source
 							 data-srcset="http://lorempixel.com/960/575/food/960-575/, http://lorempixel.com/1920/1151/food/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-					[if IE 9]></video><![endif]
+					<!--[if IE 9]></video><![endif]-->
+
+					
 					<img src="http://lorempixel.com/480/288/food/480-288/" class="lazyload" alt="image with artdirection"/>
 				</picture>
 				<noscript>
-					<img src="http://lorempixel.com/1280/768/food/1280-768/" alt="image with artdirection"/>
-				</noscript> -->
+					<img src="http://lorempixel.com/960/575/food/no-script-fallback/" alt="image with artdirection" />
+				</noscript>
+				<!--[if lte IE 8]>
+					<img src="http://lorempixel.com/960/575/food/ie-fallback/" class="fallback__img" alt="image with artdirection"/>
+				<![endif]-->
+				
 			</section>
 		</article>
 
