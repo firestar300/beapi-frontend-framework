@@ -71,7 +71,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				opacity: 1;
 				transition: opacity 300ms;
 			}
-			.no-js img.lazyload {
+			.no-js img.lazyload,
+			.no-js.lte-ie8 .fallback__img {
 				display: none;
 			}
 		</style>
@@ -98,15 +99,15 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			</div>
 			<header id="header" class="header">
 				<div class="wrapper">
-					<div class="header__logo">
+					<!-- <div class="header__logo">
 						<a href="#" class="header__logo-link">
 							<img src="http://placehold.it/300x75&text=LOGO" alt="#" class="header__logo-img" />
 						</a>
-					</div>
+					</div> -->
 					<?php if ( $class == 'home' ) :?>
-						<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
+						<h1 class="header__title"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
 					<?php else: ?>
-						<div class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
+						<div class="header__title"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
 					<?php endif; ?>
 				</div>
 			</header>

@@ -27,14 +27,17 @@
 					<source
 							 data-srcset="http://lorempixel.com/960/575/nature/960-575/, http://lorempixel.com/1920/1151/nature/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 					<!--[if IE 9]></video><![endif]-->
+
+					
 					<img src="http://lorempixel.com/480/288/nature/480-288/" class="lazyload" alt="image with artdirection"/>
 				</picture>
 				<noscript>
-					<img src="http://lorempixel.com/1280/768/nature/1280-768/" alt="image with artdirection"/>
+					<img src="http://lorempixel.com/960/575/nature/no-script-fallback/" alt="image with artdirection" />
 				</noscript>
 				<!--[if lte IE 8]>
-					<img src="http://lorempixel.com/1280/768/nature/1280-768/" class="fallback__img" alt="image with artdirection"/>
+					<img src="http://lorempixel.com/960/575/nature/ie-fallback/" class="fallback__img" alt="image with artdirection"/>
 				<![endif]-->
+					
 				
 				<!-- <hr>
 				<picture class="lazyload">
