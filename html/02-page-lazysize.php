@@ -16,6 +16,23 @@
 			</header>
 			<section class="entry__content" itemprop="articleBody">
 				<hr>
+				<h2>Sans lazysize</h2>
+
+				<picture>
+					<!--[if IE 9]><video style="display: none"><![endif]-->
+					<source
+						srcset="http://lorempixel.com/480/288/nature/480-288/, http://lorempixel.com/960/576/nature/960-576/ 2x"  
+						media="(max-width: 480px)" />
+					<source
+							srcset="http://lorempixel.com/768/460/nature/768-460/, http://lorempixel.com/1536/920/nature/1536-920/ 2x"  
+							media="(max-width: 768px)" />
+					<source
+							srcset="http://lorempixel.com/960/575/nature/960-575/, http://lorempixel.com/1920/1151/nature/1920-1151/ 2x" />
+					<!--[if IE 9]></video><![endif]-->
+					<img src="http://lorempixel.com/480/288/nature/480-288/"  alt="image with artdirection"/>
+				</picture>
+				<hr>
+				<h2>Avec Lazysizes</h2>
 				<picture>
 					<!--[if IE 9]><video style="display: none"><![endif]-->
 					<source
@@ -27,13 +44,11 @@
 					<source
 							 data-srcset="http://lorempixel.com/960/575/nature/960-575/, http://lorempixel.com/1920/1151/nature/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 					<!--[if IE 9]></video><![endif]-->
-
-					
 					<img src="http://lorempixel.com/480/288/nature/480-288/" class="lazyload" alt="image with artdirection"/>
+					<noscript>
+						<img src="http://lorempixel.com/960/575/nature/no-script-fallback/" alt="image with artdirection" />
+					</noscript>
 				</picture>
-				<noscript>
-					<img src="http://lorempixel.com/960/575/nature/no-script-fallback/" alt="image with artdirection" />
-				</noscript>
 				<!--[if lte IE 8]>
 					<img src="http://lorempixel.com/960/575/nature/ie-fallback/" class="fallback__img" alt="image with artdirection"/>
 				<![endif]-->
@@ -66,15 +81,33 @@
 					<source
 							 data-srcset="http://lorempixel.com/960/575/food/960-575/, http://lorempixel.com/1920/1151/food/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 					<!--[if IE 9]></video><![endif]-->
-
-					
+					<noscript>
+						<img src="http://lorempixel.com/960/575/food/no-script-fallback/" alt="image with artdirection" />
+					</noscript>
 					<img src="http://lorempixel.com/480/288/food/480-288/" class="lazyload" alt="image with artdirection"/>
 				</picture>
-				<noscript>
-					<img src="http://lorempixel.com/960/575/food/no-script-fallback/" alt="image with artdirection" />
-				</noscript>
 				<!--[if lte IE 8]>
 					<img src="http://lorempixel.com/960/575/food/ie-fallback/" class="fallback__img" alt="image with artdirection"/>
+				<![endif]-->
+				<hr>
+				<picture>
+					<!--[if IE 9]><video style="display: none"><![endif]-->
+					<source
+						 data-srcset="http://lorempixel.com/480/288/sports/480-288/, http://lorempixel.com/960/576/sports/960-576/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+						media="(max-width: 480px)" />
+					<source
+							 data-srcset="http://lorempixel.com/768/460/sports/768-460/, http://lorempixel.com/1536/920/sports/1536-920/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+							media="(max-width: 768px)" />
+					<source
+							 data-srcset="http://lorempixel.com/960/575/sports/960-575/, http://lorempixel.com/1920/1151/sports/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+					<!--[if IE 9]></video><![endif]-->
+					<noscript>
+						<img src="http://lorempixel.com/960/575/sports/no-script-fallback/" alt="image with artdirection" />
+					</noscript>
+					<img src="http://lorempixel.com/480/288/sports/480-288/" class="lazyload" alt="image with artdirection"/>
+				</picture>
+				<!--[if lte IE 8]>
+					<img src="http://lorempixel.com/960/575/sports/ie-fallback/" class="fallback__img" alt="image with artdirection"/>
 				<![endif]-->
 				
 			</section>
