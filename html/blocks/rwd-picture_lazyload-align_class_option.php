@@ -1,3 +1,4 @@
+
 <picture>
 	<!--[if IE 9]><video style="display: none"><![endif]-->
 	<source
@@ -9,5 +10,5 @@
 	<source
 			 data-srcset="http://lorempixel.com/960/575/nature/960-575/, http://lorempixel.com/1920/1151/nature/1920-1151/ 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 	<!--[if IE 9]></video><![endif]-->
-	<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" alt="image with artdirection"/>
+	<img width="300" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload alignleft" alt="image with artdirection"/>
 </picture>

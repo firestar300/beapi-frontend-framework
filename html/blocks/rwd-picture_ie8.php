@@ -9,5 +9,5 @@
 	<source
 			srcset="http://lorempixel.com/960/575/nature/960-575/, http://lorempixel.com/1920/1151/nature/1920-1151/ 2x" />
 	<!--[if IE 9]></video><![endif]-->
-	<img src="http://lorempixel.com/480/288/nature/480-288/"  alt="image with artdirection"/>
+	<img src="http://lorempixel.com/480/288/nature/480-288/" class="misc_class" alt="image with artdirection"/>
 </picture>

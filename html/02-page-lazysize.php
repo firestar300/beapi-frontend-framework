@@ -47,10 +47,9 @@
 				
 				<h2>Avec Lazysizes et support ie9+</h2>
 				
-				<?php include 'blocks/rwd-picture_lazyload.php'; ?>
+				<?php include 'blocks/rwd-picture_lazyload-align_class_option.php'; ?>
 				
-				<hr>
-				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum voluptates odio itaque, adipisci non, quos, quis deserunt ab nostrum nam doloremque consequuntur veniam repudiandae nulla sunt tenetur voluptate consequatur quidem.</p>
 				<?php include 'blocks/rwd-picture_lazyload.php'; ?>
 				
 				<hr>
