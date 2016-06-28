@@ -1,11 +1,14 @@
-/*fs.readFile('html/js/scripts.min.js', (err, data) => {
+var fs = require('fs');
+var str ="addClass(\"dadada\")dzada";
+var regExp = /addClass\([\s'"]*(.*?)[\s'"]*\)/gm;
+var res;
+var file, match;
+fs.readFile('assets/js/src/menu.js', (err, data) => {
 	if (err) throw err;
-	data.forEach(function(elem, ind) {
-		var res = elem.match(/addClass("")/g);
-	});
-  console.log(data);
-});*/
+	file = ''+data;
+	match = regExp.exec(file);
+	console.log(match);
+});
 
-var str = "proto:{initZoom.addClass(\"mfp-coco\"):function(mfp){var e,n=t.st.zoom,r=.addClass(\"mfp-animated-image\"),r";
 
-console.log(str.match(/addClass/g));
+
