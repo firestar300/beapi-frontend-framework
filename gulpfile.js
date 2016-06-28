@@ -1,4 +1,5 @@
 /*Load all plugin define in package.json*/
+var fs = require('fs');
 var gulp = require('gulp'),
 	gulpLoadPlugins = require('gulp-load-plugins'),
 	plugins = gulpLoadPlugins(),
@@ -13,18 +14,82 @@ var gulp = require('gulp'),
 	reload = browserSync.reload,
 	imageop = require('gulp-image-optimization'),
 	favicons = require('gulp-favicons'),
-	through = require('through2')
+	uncss = require('gulp-uncss'),
+	through = require('through2'),
 	php = require('gulp-connect-php');
 
+//Change the source of the path here
+var source = 'http://localhost/beapi-frontend-framework/html/';
+
+var tabPhp = [];
+
+
+/*Function for UnCss*/
+
+var readDir = function() {
+	fs.readdir('html/', (err, data) => {
+		if (err) throw err;
+		data.forEach(function(elem, ind) {
+			var res = elem.match(/.php/g);
+			if(res != null) {
+				if((data[ind] !== 'header.php') && (data[ind] !== 'footer.php') && (data[ind] !== 'index.php') && (data[ind] !== 'searchform.php')) {
+						tabPhp.push(data[ind]);
+				}
+			}
+		});
+	});
+}
+
+var fullPath = function(tab) {
+	return tab.map(function(o) {return source+o; });
+}
+
+console.log('new tab ',fullPath);
 
 var pxtoremOptions = {
 	replace: false,
 	prop_white_list: ['font', 'font-size', 'line-height', 'letter-spacing', 'margin', 'padding', 'border', 'border-top', 'border-left', 'border-bottom', 'border-right', 'border-radius', 'width', 'height', 'top', 'left', 'bottom', 'right']
 };
 
-/*Php server*/
-gulp.task('php', function() {
-	php.server({ base: '.', port: 9090, keepalive: true});
+/*UnCSS*/
+gulp.task('uncss', function() {
+	readDir();
+	setTimeout(function() {
+		tabPhp = fullPath(tabPhp);
+		console.log('le tableau tabPhp', tabPhp);
+		gulp.src('assets/css/style.scss')
+			.pipe(sass({
+				includePaths: require('node-bourbon').includePaths
+			}).on('error', sass.logError))
+			.pipe(uncss({
+				html: tabPhp
+			}))
+			.pipe(plugins.concat('style-uncss.dev.css'))
+			.pipe(pxtorem(pxtoremOptions))
+			.pipe(gulp.dest('./assets/css'))
+			.pipe(browserSync.reload({stream:true}));
+	},1500);
+});
+
+/*UnCSS Min*/
+gulp.task('uncss-min', function() {
+	readDir();
+	setTimeout(function() {
+		tabPhp = fullPath(tabPhp);
+		console.log('le tableau tabPhp', tabPhp);
+		gulp.src('assets/css/style.scss')
+			.pipe(sass({
+				includePaths: require('node-bourbon').includePaths
+			}).on('error', sass.logError))
+			.pipe(uncss({
+				html: tabPhp
+			}))
+			.pipe(plugins.concat('style-uncss.min.css'))
+			.pipe(minifyCSS())
+			.pipe(pxtorem(pxtoremOptions))
+			.pipe(gulp.dest('./assets/css'))
+			.pipe(browserSync.reload({stream:true}));
+	},1500);
 });
 
 /*Set server*/
@@ -155,6 +220,10 @@ gulp.task('dist-sass', function () {
 		.pipe(pxtorem(pxtoremOptions))
 		.pipe(gulp.dest('./assets/css'));
 });
+
+
+
+
 // On default task, just compile on demand
 gulp.task('default', function() {
 	gulp.watch('assets/js/src/*.js', [ 'dev-check-js', 'dist-all-js' ]);
