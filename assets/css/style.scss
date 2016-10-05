@@ -5,42 +5,6 @@
 //http://bourbon.io/docs/
 @import "bourbon";
 
-//Load vendor css from bower 
-@import "vendor/normalize-scss/_normalize.scss";
-@import "vendor/_magnific-popup.scss";
-@import "vendor/_avalanche.scss";
-
 //Main sass config files
 @import "components/_url-config.scss";
 @import "components/_variables.scss";
-
-//Main websites components
-@import "components/_box-sizing.scss";
-@import "components/_icons.scss";
-@import "components/_mixins.scss";
-@import "components/_print.scss";
-@import "components/_text.scss";
-@import "components/_img.scss";
-@import "components/_form.scss";
-@import "components/_buttons.scss";
-@import "components/_messages.scss";
-
-//Main websites patterns
-@import "patterns/_lazyload.scss";
-@import "patterns/_global.scss";
-@import "patterns/_utilities.scss";
-@import "patterns/_plugins.scss";
-@import "patterns/_layout.scss";
-@import "patterns/_header.scss";
-@import "patterns/_menus.scss";
-@import "patterns/_breadcrumb.scss";
-@import "patterns/_entries.scss";
-@import "patterns/_comments.scss";
-@import "patterns/_widgets.scss";
-@import "patterns/_searchform.scss";
-@import "patterns/_grids.scss";
-
-//Pages
-@import "pages/_default.scss";
-@import "pages/_404.scss";
-@import "pages/_home.scss";
