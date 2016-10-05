@@ -165,6 +165,7 @@ code {
  */
 button,
 input,
+select,
 textarea {
   color: inherit;
   /* 1 */
@@ -185,7 +186,8 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button {
+button,
+select {
   text-transform: none; }
 
 /**
@@ -228,6 +230,12 @@ input {
  * 2. Remove excess padding in IE 8/9/10.
  *  Known issue: excess padding remains in IE 6.
  */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
@@ -310,9 +318,100 @@ button::-moz-focus-inner {
 \*------------------------------------*/
 /*------------------------------------*    GRID LAYOUT
 \*------------------------------------*/
+.grid {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -20px;
+  font-size: 0; }
+
+.grid__cell {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  padding-left: 20px;
+  margin: 0;
+  vertical-align: top;
+  font-size: 1rem; }
+
+.grid--center {
+  text-align: center; }
+  .grid--center > .grid__cell {
+    text-align: left; }
+
+.grid__cell--center {
+  display: block;
+  margin: 0 auto; }
+
+.grid--middle > .grid__cell {
+  vertical-align: middle; }
+
+.grid--flush {
+  margin-left: 0; }
+  .grid--flush > .grid__cell {
+    padding-left: 0; }
+
+.grid--tiny {
+  margin-left: -5px; }
+  .grid--tiny > .grid__cell {
+    padding-left: 5px; }
+
+.grid--small {
+  margin-left: -10px; }
+  .grid--small > .grid__cell {
+    padding-left: 10px; }
+
+.grid--large {
+  margin-left: -40px; }
+  .grid--large > .grid__cell {
+    padding-left: 40px; }
+
+.grid--gutter-custom {
+  margin-left: -2px; }
+  .grid--gutter-custom > .grid__cell {
+    padding-left: 2px; }
 
 /*------------------------------------*    GRID WIDTHS
 \*------------------------------------*/
+.\31\/2 {
+  width: 50%; }
+
+.\31\/3, .\32\/6 {
+  width: 33.33333%; }
+
+.\32\/3 {
+  width: 66.66667%; }
+
+.\31\/4 {
+  width: 25%; }
+
+.\33\/4 {
+  width: 75%; }
+
+.\31\/6 {
+  width: 16.66667%; }
+
+@media screen and (min-width: 500px) {
+  .\31\/2--handheld-and-up {
+    width: 50%; } }
+
+@media screen and (min-width: 801px) {
+  .\31\/3--lap-and-up {
+    width: 33.33333%; } }
+
+@media screen and (min-width: 500px) {
+  .grid--small--handheld-and-up {
+    margin-left: -10px; }
+    .grid--small--handheld-and-up > .grid__cell {
+      padding-left: 10px; } }
+
+@media screen and (min-width: 801px) {
+  .grid--huge--lap-and-up {
+    margin-left: -80px; }
+    .grid--huge--lap-and-up > .grid__cell {
+      padding-left: 80px; } }
 
 html {
   box-sizing: border-box; }
@@ -385,7 +484,8 @@ html {
   /* remove useless content */
   .header,
   .widget-area,
-  .breadcrumb {
+  .breadcrumb,
+  .wp-pagenavi {
     display: none !important; }
   /* reset width */
   .content {
@@ -720,7 +820,7 @@ input[type="submit"]:active, button:active, .button:active {
 
 /* Success, info, notice and error/alert boxes
 -------------------------------------------------------------- */
-.message {
+.message, .gform_confirmation_message, .validation_error, .gfield_error {
   border-left: 5px solid #f5745a;
   border-left: 0.3125rem solid #f5745a;
   color: #f5745a;
@@ -731,7 +831,9 @@ input[type="submit"]:active, button:active, .button:active {
   .message p:last-child {
     margin: 0; }
 
-.error {
+.error,
+.validation_error,
+.gfield_error {
   color: #8a1f11;
   background: #fbe3e4;
   border-color: #8a1f11; }
@@ -745,7 +847,7 @@ input[type="submit"]:active, button:active, .button:active {
   .notice a {
     color: #514721; }
 
-.success {
+.success, .gform_confirmation_message {
   color: #264409;
   background: #e6efc2;
   border-color: #264409; }
@@ -758,6 +860,9 @@ input[type="submit"]:active, button:active, .button:active {
   border-color: #205791; }
   .info a {
     color: #205791; }
+
+.lazyload {
+  opacity: 0; }
 
 .lazyloaded {
   opacity: 1;
@@ -784,21 +889,51 @@ input[type="submit"]:active, button:active, .button:active {
   width: 0.0625rem; }
 
 .header__img,
-.entry__content img {
+.entry__content img,
+.entry__img {
   display: block;
   max-width: 100%;
   height: auto; }
 
 /* Plugins overide css
  ----------------------------------------------------------------------------------------------------*/
-.gfield:after {
+.gfield:after,
+.ginput_full:after {
   content: "";
   display: table;
   clear: both; }
 
+.gfield select {
+  width: 100%; }
+
+.gform_heading,
+.gf_progressbar_wrapper,
 .gfield {
   margin: 0 0 20px !important;
   margin: 0 0 1.25rem !important; }
+
+.gform_description,
+.gfield_description,
+.gsection_description {
+  font-size: 11px;
+  font-size: 0.6875rem; }
+  .gform_description:after,
+  .gfield_description:after,
+  .gsection_description:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.gf_progressbar {
+  background: #ddd; }
+
+.gf_progressbar_percentage {
+  text-align: center;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #fff;
+  background: #f5745a; }
 
 .ginput_container:after {
   content: "";
@@ -808,6 +943,71 @@ input[type="submit"]:active, button:active, .button:active {
 .gfield_label {
   margin: 0 0 10px;
   margin: 0 0 0.625rem; }
+
+.gfield_description {
+  margin: 0; }
+
+.field_description_below .gfield_description {
+  margin-top: 10px; }
+
+.field_description_above .gfield_description {
+  margin-bottom: 10px; }
+
+.ginput_complex:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.ginput_complex .ginput_left,
+.ginput_complex .ginput_right,
+.ginput_complex .name_first,
+.ginput_complex .name_last {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%; }
+  .ginput_complex .ginput_left label,
+  .ginput_complex .ginput_right label,
+  .ginput_complex .name_first label,
+  .ginput_complex .name_last label {
+    margin: 5px 0 10px;
+    margin: 0.3125rem 0 0.625rem;
+    font-size: 11px;
+    font-size: 0.6875rem; }
+
+.ginput_complex .ginput_right,
+.ginput_complex .name_last {
+  margin-right: 0; }
+
+.ginput_complex .ginput_full {
+  display: block;
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
+  .ginput_complex .ginput_full label {
+    margin: 5px 0 10px;
+    margin: 0.3125rem 0 0.625rem;
+    font-size: 11px;
+    font-size: 0.6875rem; }
+
+.gfield_time_hour,
+.gfield_time_minute {
+  display: inline-block; }
+  .gfield_time_hour input[type="text"],
+  .gfield_time_minute input[type="text"] {
+    display: inline-block;
+    width: auto; }
+  .gfield_time_hour label,
+  .gfield_time_minute label {
+    display: block; }
+
+.gfield_list {
+  border: 0; }
+  .gfield_list td {
+    padding: 0;
+    border: 0; }
+
+.gfield_price input[type="text"] {
+  display: inline-block;
+  width: auto; }
 
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
@@ -970,6 +1170,9 @@ input[type="submit"]:active, button:active, .button:active {
   display: table;
   clear: both; }
 
+.entry__summary {
+  margin-bottom: 50px; }
+
 .entry__content:after {
   content: "";
   display: table;
@@ -998,6 +1201,17 @@ input[type="submit"]:active, button:active, .button:active {
     .entry__content .alignright,
     .entry__content .alignleft {
       max-width: 100%; } }
+
+.entry__content .gform_wrapper ul {
+  list-style: none; }
+
+.entry__content .searchform input {
+  display: inline; }
+
+.entry__summary:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 /* Comments
  ----------------------------------------------------------------------------------------------------*/
@@ -1050,6 +1264,26 @@ input[type="submit"]:active, button:active, .button:active {
 ----------------------------------------------------------------------------------------------------*/
 .searchform {
   position: relative; }
+
+.grid-sandbox {
+  padding: 20px;
+  padding: 1.25rem;
+  margin-bottom: 2em;
+  margin-top: 5px;
+  background: #f2f2f2; }
+
+.box {
+  padding: 10px;
+  padding: 0.625rem;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #cecece;
+  color: #787878; }
+
+.box--tall {
+  padding: 30px;
+  padding: 1.875rem;
+  margin-bottom: 0; }
 
 /* Page default css
 -------------------------------------------------------------- */

@@ -23,7 +23,7 @@ var gulp = require('gulp'),
 	php = require('gulp-connect-php');
 
 //Change the source of the path here
-var source = 'http://localhost/beapi-frontend-framework/html/';
+var source = 'http://localhost/beapi/wordpress/wp-content/themes/BFF/html/';
 //set js path files
 var pathJs = ['assets/js/scripts.min.js'];
 
@@ -84,10 +84,11 @@ var pxtoremOptions = {
 /*UnCSS*/
 
 gulp.task('uncss', function() {
+	readDir();
 	setTimeout(function() {
 		gulp.src('assets/css/style.dev.css')
 			.pipe(uncss({
-				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/02-page-default'],
+				html: tabPhp,
 				ignore: classExclude
 			}))
 			.pipe(plugins.concat('style-uncss.dev.css'))
