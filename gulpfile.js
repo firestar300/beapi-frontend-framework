@@ -29,7 +29,7 @@ var pathJs = ['assets/js/scripts.min.js'];
 
 //for unCss file an class to exclude
 var tabPhp = [];
-var classExclude = [];
+var classExclude = ['.menu.opened','.menu-mobile--active .button__menu-close','.menu-mobile--active .button__menu-open'];
 var magnificPopUp = true;
 
 var exclude = function(arr) {
@@ -82,32 +82,15 @@ var pxtoremOptions = {
 };
 
 /*UnCSS*/
-gulp.task('uncss', function() {
-	setTimeout(function() {
-		gulp.src('assets/css/style.dev.css')
-			.pipe(sass({
-				includePaths: require('node-bourbon').includePaths
-			}).on('error', sass.logError))
-			.pipe(uncss({
-				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/'],
-				ignore: classExclude
-			}))
-			.pipe(plugins.concat('style-uncss.dev.css'))
-			.pipe(pxtorem(pxtoremOptions))
-			.pipe(gulp.dest('./assets/css'))
-			.pipe(browserSync.reload({stream:true}));
-	},1500);
-});
 
-/*uncss 2*/
-gulp.task('uncss2', function() {
+gulp.task('uncss', function() {
 	setTimeout(function() {
 		gulp.src('assets/css/style.dev.css')
 			.pipe(uncss({
 				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/02-page-default'],
 				ignore: classExclude
 			}))
-			.pipe(plugins.concat('style-uncss-2.dev.css'))
+			.pipe(plugins.concat('style-uncss.dev.css'))
 			.pipe(gulp.dest('./assets/css'));
 	},1500);
 });
