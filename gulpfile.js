@@ -100,21 +100,13 @@ gulp.task('uncss', function() {
 gulp.task('uncss-min', function() {
 	readDir();
 	setTimeout(function() {
-		tabPhp = fullPath(tabPhp);
-		console.log('le tableau tabPhp', tabPhp);
-		gulp.src('assets/css/style.scss')
-			.pipe(sass({
-				includePaths: require('node-bourbon').includePaths
-			}).on('error', sass.logError))
+		gulp.src('assets/css/style.min.css')
 			.pipe(uncss({
 				html: tabPhp,
 				ignore: classExclude
 			}))
 			.pipe(plugins.concat('style-uncss.min.css'))
-			.pipe(minifyCSS())
-			.pipe(pxtorem(pxtoremOptions))
-			.pipe(gulp.dest('./assets/css'))
-			.pipe(browserSync.reload({stream:true}));
+			.pipe(gulp.dest('./assets/css'));
 	},1500);
 });
 
