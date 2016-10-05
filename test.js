@@ -2,6 +2,7 @@
 var fs = require('fs');
 
 var tabPhp = [];
+var source = 'http://localhost/beapi-frontend-framework/html/';
 
 var readDir = function() {
 	fs.readdir('html/', (err, data) => {
@@ -10,9 +11,14 @@ var readDir = function() {
 			var res = elem.match(/.php/g);
 			if(res != null) {
 				if((data[ind] !== 'header.php') && (data[ind] !== 'footer.php') && (data[ind] !== 'index.php') && (data[ind] !== 'searchform.php')) {
-						tabPhp.push(data[ind]);
+						tabPhp.push(source+data[ind]);
 				}
 			}
+			var str = '';
+			tabPhp.forEach(function(elem, ind) {
+				str = elem.replace(".php","");
+				tabPhp[ind] = str;
+			})
 		});
 		console.log('tabPhp', tabPhp);
 	});

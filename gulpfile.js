@@ -57,10 +57,16 @@ var readDir = function() {
 			var res = elem.match(/.php/g);
 			if(res != null) {
 				if((data[ind] !== 'header.php') && (data[ind] !== 'footer.php') && (data[ind] !== 'index.php') && (data[ind] !== 'searchform.php')) {
-						tabPhp.push(data[ind]);
+						tabPhp.push(source+data[ind]);
 				}
 			}
+			var str = '';
+			tabPhp.forEach(function(elem, ind) {
+				str = elem.replace(".php","");
+				tabPhp[ind] = str;
+			})
 		});
+		console.log('tabPhp', tabPhp);
 	});
 }
 
@@ -98,7 +104,7 @@ gulp.task('uncss2', function() {
 	setTimeout(function() {
 		gulp.src('assets/css/style.dev.css')
 			.pipe(uncss({
-				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/'],
+				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/02-page-default'],
 				ignore: classExclude
 			}))
 			.pipe(plugins.concat('style-uncss-2.dev.css'))
