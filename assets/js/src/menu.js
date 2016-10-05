@@ -14,6 +14,7 @@ if (matchMedia('(max-width: 1023px)').matches) {
 	jQuery(".button__menu-open").on("click", function(e){
 		e.preventDefault();
 		jQuery(".menu__mobile").addClass("opened");
+		jQuery(".menu__mobile").addClass("carambar");
 		jQuery("html, body").addClass("menu-mobile--active");
 	});
 	// Close menu
