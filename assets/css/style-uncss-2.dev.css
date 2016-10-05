@@ -292,9 +292,8 @@ body {
 
 a {
   color: #f5745a; }
-
-a:hover, a:active, a:focus {
-  color: #f5745a; }
+  a:hover, a:active, a:focus {
+    color: #f5745a; }
 
 /* Headings
 ----------------------------------------------------------------------------------------------------*/

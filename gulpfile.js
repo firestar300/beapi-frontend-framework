@@ -1,5 +1,9 @@
-/*Load all plugin define in package.json*/
+/*var for uncss*/
 var fs = require('fs');
+var regExp = /addClass\([\s'"]*(.*?)[\s'"]*\)/gm;
+var res;
+var file, match;
+/*Load all plugin define in package.json*/
 var gulp = require('gulp'),
 	gulpLoadPlugins = require('gulp-load-plugins'),
 	plugins = gulpLoadPlugins(),
@@ -20,8 +24,28 @@ var gulp = require('gulp'),
 
 //Change the source of the path here
 var source = 'http://localhost/beapi-frontend-framework/html/';
+//set js path files
+var pathJs = ['assets/js/scripts.min.js'];
 
+//for unCss file an class to exclude
 var tabPhp = [];
+var classExclude = [];
+var magnificPopUp = true;
+
+var exclude = function(arr) {
+	arr.forEach(function(elem, ind) {
+		fs.readFile(elem, (err, data) => {
+			if (err) throw err;
+			file = ''+data;
+			while(match = regExp.exec(file)){
+				//console.log('match: '+match[1],' type: '+typeof match, 'match length '+match.length);
+				classExclude.push('.'+match[1]);
+			}
+			console.log('class exclude ',classExclude);
+		});
+	})
+}
+exclude(pathJs);
 
 
 /*Function for UnCss*/
@@ -53,21 +77,32 @@ var pxtoremOptions = {
 
 /*UnCSS*/
 gulp.task('uncss', function() {
-	readDir();
 	setTimeout(function() {
-		tabPhp = fullPath(tabPhp);
-		console.log('le tableau tabPhp', tabPhp);
-		gulp.src('assets/css/style.scss')
+		gulp.src('assets/css/style.dev.css')
 			.pipe(sass({
 				includePaths: require('node-bourbon').includePaths
 			}).on('error', sass.logError))
 			.pipe(uncss({
-				html: tabPhp
+				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/'],
+				ignore: classExclude
 			}))
 			.pipe(plugins.concat('style-uncss.dev.css'))
 			.pipe(pxtorem(pxtoremOptions))
 			.pipe(gulp.dest('./assets/css'))
 			.pipe(browserSync.reload({stream:true}));
+	},1500);
+});
+
+/*uncss 2*/
+gulp.task('uncss2', function() {
+	setTimeout(function() {
+		gulp.src('assets/css/style.dev.css')
+			.pipe(uncss({
+				html: ['http://localhost/beapi/wordpress/wp-content/themes/BFF/html/'],
+				ignore: classExclude
+			}))
+			.pipe(plugins.concat('style-uncss-2.dev.css'))
+			.pipe(gulp.dest('./assets/css'));
 	},1500);
 });
 
@@ -82,7 +117,8 @@ gulp.task('uncss-min', function() {
 				includePaths: require('node-bourbon').includePaths
 			}).on('error', sass.logError))
 			.pipe(uncss({
-				html: tabPhp
+				html: tabPhp,
+				ignore: classExclude
 			}))
 			.pipe(plugins.concat('style-uncss.min.css'))
 			.pipe(minifyCSS())
