@@ -35,11 +35,11 @@ gulp.task('bs-reload', getTask('bs-reload'));
 
 
 // On default task, just compile on demand
-gulp.task('default', ['js', 'sass-dev', 'sass-dist', 'svgicons'], function() {
+gulp.task('default', ['js', 'sass-dev', 'sass-dist'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'js-vendor', 'js' ]);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass-dev', 'sass-dist']);
-	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass-dev', 'sass-dist']);
+	gulp.watch(['assets/img/icons/*.svg'], ['sass-dev', 'sass-dist']);
 });
 // Browser sync with local setup.
 gulp.task('serve', ['browser-sync', 'server', 'bs-reload', 'js', 'sass-dev', 'sass-dist', 'svgicons'], function() {
