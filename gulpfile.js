@@ -27,6 +27,9 @@ gulp.task('favicon', getTask('favicon'));
 //Image Minification
 gulp.task('imagemin', getTask('imagemin'));
 
+//A11y cjhecklist
+gulp.task('a11y', getTask('a11y'));
+
 //Local dev
 gulp.task('browser-sync', ['server'], getTask('browser-sync'));
 gulp.task('server', getTask('server'));
