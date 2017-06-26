@@ -45,6 +45,9 @@
 	@media screen and (min-width: $desktop-small) {
 		display: none;
 	}
+	.button__icon {
+		pointer-events: none;
+	}
 }
 .menu {
 	z-index: 998;
@@ -61,6 +64,9 @@
 	transition : left 0.5s ease-out;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0);
+	&.notransition {
+		transition: none;
+	} 
 	.wrapper {
 		padding: 0;
 	}

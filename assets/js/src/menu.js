@@ -23,6 +23,7 @@ menuOpen.on("click", function(){
 
 // Close menu
 menuClose.on("click", function(){
+	$('.menu__mobile').removeAttr('style');
 	menuBody.removeClass("menu-mobile--active");
 });
 
